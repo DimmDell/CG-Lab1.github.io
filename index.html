@@ -20,24 +20,24 @@
       var marioX = -75;
       var cloudsX = -330;
 
-      var y = 0;
-
       var clouds = new Image();
       clouds.src = "clouds.png";
 
       function animateMario(ctx, frame) {
-        canvas.width = 1024;
+        canvas.width = window.innerWidth;
         canvas.height = 682;
+        
         ctx.clearRect(0, 0, canvas.width, canvas.height); // clear canvas
         ctx.drawImage(frame.buffer, marioX, 490, 68, 80); // draw image at current position
         ctx.drawImage(clouds, cloudsX, -37, 550, 360); // draw image at current position
+
         marioX += 15;
-        cloudsX += 0.5;
-        if (marioX > 1020) {
+        cloudsX += 0.4;
+        if (marioX > window.innerWidth) {
           marioX = -75;
         }
 
-        if (cloudsX > 1020) {
+        if (cloudsX > window.innerWidth) {
           cloudsX = -500;
         }
       }
